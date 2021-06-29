@@ -1,0 +1,7 @@
+<h1>Tirage au sort effectué</h1>
+
+<ul>
+  <% @all_participants.each do |element| %>
+    <li><%= element.participant.first_name %> fait un cadeau à <%= element.participant_allocated %></li>
+  <% end %>
+</ul>

@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :events, only: [:new, :create, :show] do
     resources :participants, only: [:new, :create]
-
-    # patch "allocate_participants", to: "events#allocate_participants"
-
+    get "allocate_participants", to: "events#allocate_participants"
   end
 end
