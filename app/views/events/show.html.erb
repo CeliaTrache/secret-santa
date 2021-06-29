@@ -1,0 +1,8 @@
+<h1>Your event is created !</h1>
+
+<p>Amount : <%= @event.amount%></p>
+<ul>Participants :
+  <% @event.participants.each do |participant| %>
+    <li><%= participant.first_name %> (<%= participant.email %>)</li>
+  <% end %>
+</ul>
