@@ -6,8 +6,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    @event.save
-    redirect_to event_path(@event)
+    if @event.save
+      redirect_to new_event_participant_path(@event)
+    else
+      render :new
+    end
   end
 
   def show
@@ -15,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def allocate_participants
+    raise
     event = Event.find(params[:event_id])
     participants = event.participants
     participants.each do |participant|
