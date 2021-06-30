@@ -1,4 +1,8 @@
+<h1>Create your secret santa event</h1>
+
 <%= simple_form_for(@event) do |f| %>
   <%= f.input :amount %>
-  <%= f.submit %>
+  <%= f.submit "Add participants", class: "btn btn-primary" %>
 <% end %>
+
+

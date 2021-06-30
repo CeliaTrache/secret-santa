@@ -1,5 +1,17 @@
-<%= simple_form_for [ @event, @participant ] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :email %>
-  <%= f.submit "Add participant", class: "btn btn-primary" %>
+<h1>Create your secret santa event</h1>
+<p>Amount to spend</p>
+<%= @event.amount %>
+
+<h2>Add participants</h2>
+
+<% 4.times do %>
+  <%= simple_form_for( [ @event, @participant ], remote: true) do |f| %>
+    <%= f.fields_for :participants, [Participant.new]*3 do |participant| %>
+      <%= f.input :first_name %>
+      <%= f.input :email %>
+    <% end %>
+    <%= f.submit "Validate", class: "btn btn-success btn-participants" %>
+  <% end %>
 <% end %>
+
+<%= link_to "Create event", event_allocate_participants_path(@event), class: "btn btn-primary btn-submit" %>

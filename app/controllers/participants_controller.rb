@@ -1,4 +1,6 @@
 class ParticipantsController < ApplicationController
+  skip_forgery_protection
+
   def new
     @participant = Participant.new
     @event = Event.find(params[:event_id])

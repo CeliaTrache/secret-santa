@@ -11,3 +11,10 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import { submitFormOnClick } from '../components/form';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  submitFormOnClick();
+});
