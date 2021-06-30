@@ -6,3 +6,6 @@
     <li><%= participant.first_name %> (<%= participant.email %>)</li>
   <% end %>
 </ul>
+
+<%= link_to "Add participants", new_event_participant_path(@event), class: "btn btn-success" %>
+<%= link_to "Create event", event_allocate_participants_path(@event), class: "btn btn-primary" %>

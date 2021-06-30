@@ -4,14 +4,10 @@
 
 <h2>Add participants</h2>
 
-<% 4.times do %>
-  <%= simple_form_for( [ @event, @participant ], remote: true) do |f| %>
-    <%= f.fields_for :participants, [Participant.new]*3 do |participant| %>
-      <%= f.input :first_name %>
-      <%= f.input :email %>
-    <% end %>
-    <%= f.submit "Validate", class: "btn btn-success btn-participants" %>
+<%= simple_form_for( [ @event, @participant ], remote: true) do |f| %>
+  <%= f.fields_for :participants, [Participant.new]*3 do |participant| %>
+    <%= f.input :first_name %>
+    <%= f.input :email %>
   <% end %>
+  <%= f.submit "Validate", class: "btn btn-primary btn-participants" %>
 <% end %>
-
-<%= link_to "Create event", event_allocate_participants_path(@event), class: "btn btn-primary btn-submit" %>
